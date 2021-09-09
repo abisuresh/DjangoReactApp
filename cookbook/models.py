@@ -1,8 +1,10 @@
+import django.conf
 import django.core.validators
 from django.db import models
 
 
 # Create your models here.
+
 
 class Recipe(models.Model):
     ingredient_list = [(1, "onion"), (2, "garlic"), (3, "tomato"), (4, "oil"), (5, "salt"), (6, "flour"), (7, "rice"),
@@ -11,6 +13,7 @@ class Recipe(models.Model):
                        (19, "beans"), (20, "peanuts"), (21, "chicken"), (22, "lamb"), (23, "goat"), (24, "turkey"),
                        (25, "deer"), (26, "pork"), (27, "beef"), (28, "tacos")]
 
+    user = models.ForeignKey(django.conf.settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='authors')
     title = models.CharField(max_length=100)
     author = models.CharField(default=None, max_length=100)
     prep_time = models.IntegerField(django.core.validators.MinValueValidator(0))
