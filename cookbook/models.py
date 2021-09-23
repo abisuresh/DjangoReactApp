@@ -8,7 +8,7 @@ from django.db import models
 
 class Recipe(models.Model):
     ingredient_list = [(1, "onion"), (2, "garlic"), (3, "tomato"), (4, "oil"), (5, "salt"), (6, "flour"), (7, "rice"),
-                       (8, "chiles"),(9, "cheese"), (10, "corn"), (11, "lemons"), (12, "limes"), (13, "cabbage"),
+                       (8, "chiles"), (9, "cheese"), (10, "corn"), (11, "lemons"), (12, "limes"), (13, "cabbage"),
                        (14, "potato"), (15, "blueberries"), (16, "apples"), (17, "sweet potato"), (18, "avocado"),
                        (19, "beans"), (20, "peanuts"), (21, "chicken"), (22, "lamb"), (23, "goat"), (24, "turkey"),
                        (25, "deer"), (26, "pork"), (27, "beef"), (28, "tacos")]
@@ -26,3 +26,7 @@ class Cookware(models.Model):
     type_list = [(1, "Dutch Oven"), ]
     title = models.TextField(name="Name of cookware", max_length=100)
     type = models.CharField(choices=type_list, max_length=100)
+
+
+class Condiments(models.Model):
+    type = models.CharField(max_length=50)
